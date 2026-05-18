@@ -17,14 +17,27 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-slideshow">
-            <div class="hero-bg slide1" style="background-image: url('hero_bg_1779064863591.png');"></div>
-            <div class="hero-bg slide2" style="background-image: url('hero_bg_2_1779068009080.png');"></div>
-            <div class="hero-bg slide3" style="background-image: url('hero_bg_3_1779068023694.png');"></div>
-        </div>
+    <header class="hero" id="hero-section">
+        <!-- Backgrounds -->
+        <div class="hero-bg phase1-bg" style="background-image: url('hero_bg_3_1779068023694.png');"></div>
+        <div class="hero-bg phase2-bg" style="background-image: url('hiking_quiz_group_jinba_1779090386685.png');"></div>
+        <div class="hero-bg phase3-bg" style="background-image: url('summit_eating_group_1779090219731.png');"></div>
+        <div class="hero-bg phase4-bg" style="background-image: url('hero_bg_2_1779068009080.png');"></div>
+        
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        
+        <!-- Texts -->
+        <div class="hero-content phase1-text">
+            <h1 class="big-word">歩く。</h1>
+        </div>
+        <div class="hero-content phase2-text">
+            <h1 class="big-word">暴く。</h1>
+        </div>
+        <div class="hero-content phase3-text">
+            <h1 class="big-word">生きる。</h1>
+        </div>
+        
+        <div class="hero-content phase4-text final-content">
             <h1 class="hero-title">歩く、暴く、生きる。</h1>
             <p class="hero-subtitle">〜 人生の謎を、仲間と解き明かしていく山登り 〜</p>
             <p class="hero-date">2026.05.30 SAT @ 陣馬山</p>
@@ -42,7 +55,7 @@
                     <p>そこで私たちは考えました。<br><strong>「ただのクイズじゃなくて、お互いの『人生の謎』や『隠したい過去』をクイズにして暴き合ったら、どうなるだろう？」</strong></p>
                 </div>
                 <div class="image-block">
-                    <img src="hiking_quiz_1779064881477.png" alt="山道を歩きながら語り合う様子">
+                    <img src="hiking_quiz_group_jinba_1779090386685.png" alt="山道を歩きながら謎解きをしている様子">
                 </div>
             </div>
             
@@ -53,7 +66,7 @@
                     <p>そして、山頂で一緒に作って食べる温かい食事は、思わず「おいしい、、」と声が漏れる格別の味。最高に「生」を実感する瞬間です。</p>
                 </div>
                 <div class="image-block">
-                    <img src="summit_food_1779064903812.png" alt="山頂での温かい食事">
+                    <img src="summit_eating_group_1779090219731.png" alt="山頂でみんなで温かい食事をしている様子">
                 </div>
             </div>
 
@@ -140,5 +153,26 @@
     <footer>
         <p>&copy; 2026 歩く、暴く、生きる。Workshop</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hero = document.getElementById('hero-section');
+            
+            setTimeout(() => {
+                hero.className = 'hero phase1';
+            }, 100);
+
+            setTimeout(() => {
+                hero.className = 'hero phase2';
+            }, 3000);
+
+            setTimeout(() => {
+                hero.className = 'hero phase3';
+            }, 6000);
+
+            setTimeout(() => {
+                hero.className = 'hero phase4';
+            }, 9000);
+        });
+    </script>
 </body>
 </html>

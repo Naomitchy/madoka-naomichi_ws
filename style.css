@@ -116,24 +116,16 @@ section {
     overflow: hidden;
 }
 
-.hero-slideshow {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-}
-
 .hero-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: slideshow 24s infinite;
+    transform: scale(1.1);
+    transition: opacity 1.5s ease-in-out, transform 6s ease-out;
+    z-index: 1;
 }
-
-.hero-bg.slide1 { animation-delay: 0s; }
-.hero-bg.slide2 { animation-delay: 8s; }
-.hero-bg.slide3 { animation-delay: 16s; }
 
 .hero-overlay {
     position: absolute;
@@ -143,10 +135,36 @@ section {
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
     z-index: 3;
     opacity: 0;
-    animation: fadeIn 2s ease-out 0.5s forwards;
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-out;
+    width: 100%;
+    text-align: center;
+}
+
+/* Phase Transitions */
+.hero.phase1 .phase1-bg { opacity: 1; transform: scale(1.05); }
+.hero.phase1 .phase1-text { opacity: 1; transform: translate(-50%, -50%); }
+
+.hero.phase2 .phase2-bg { opacity: 1; transform: scale(1.05); }
+.hero.phase2 .phase2-text { opacity: 1; transform: translate(-50%, -50%); }
+
+.hero.phase3 .phase3-bg { opacity: 1; transform: scale(1.05); }
+.hero.phase3 .phase3-text { opacity: 1; transform: translate(-50%, -50%); }
+
+.hero.phase4 .phase4-bg { opacity: 1; transform: scale(1.05); }
+.hero.phase4 .phase4-text { opacity: 1; transform: translate(-50%, -50%); }
+
+.big-word {
+    font-size: 8rem;
+    font-family: 'Shippori Mincho', serif;
+    letter-spacing: 0.2em;
+    color: var(--text-main);
+    text-shadow: 0 4px 30px rgba(255,255,255,0.9);
 }
 
 .hero-title {
@@ -367,6 +385,10 @@ footer {
 
     .hero-date {
         font-size: 1rem;
+    }
+
+    .big-word {
+        font-size: 15vw;
     }
 
     /* Section Titles */

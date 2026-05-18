@@ -1,0 +1,455 @@
+:root {
+    --bg-color: #fdfdfd;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --accent-color: #059669; /* Emerald green */
+    --accent-hover: #047857;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .hero-subtitle {
+    font-family: 'Shippori Mincho', serif;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Typography Utilities */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+/* Button */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), #047857);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    color: #fff;
+}
+
+.btn-primary.large {
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+}
+
+/* Glassmorphism */
+.glassmorphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideshow 24s infinite;
+}
+
+.hero-bg.slide1 { animation-delay: 0s; }
+.hero-bg.slide2 { animation-delay: 8s; }
+.hero-bg.slide3 { animation-delay: 16s; }
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 80%, var(--bg-color) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.hero-title {
+    font-size: 5vw;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    text-shadow: 0 4px 20px rgba(255,255,255,0.8);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.hero-date {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* Concept Section */
+.concept-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.concept-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-block {
+    flex: 1;
+}
+
+.text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.image-block {
+    flex: 1;
+    position: relative;
+}
+
+.image-block img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.5s ease;
+}
+
+.image-block img:hover {
+    transform: scale(1.02);
+}
+
+.concept-conclusion {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.2rem;
+    padding: 3rem;
+    background: linear-gradient(to bottom, transparent, rgba(16, 185, 129, 0.05), transparent);
+}
+
+.signature {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-family: 'Shippori Mincho', serif;
+    color: var(--accent-color);
+}
+
+/* Info Section */
+.info-table-wrapper {
+    padding: 3rem;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th, .info-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.info-table tr:last-child th, .info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.info-table th {
+    text-align: left;
+    width: 25%;
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.info-table td ul {
+    list-style-type: none;
+}
+
+.info-table td ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.info-table td ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+small {
+    color: var(--text-muted);
+}
+
+/* Organizers Section */
+.profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.profile-card {
+    padding: 2.5rem;
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 0.5rem;
+}
+
+.profile-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(to top, rgba(16, 185, 129, 0.1), transparent);
+    padding: 8rem 0;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-family: 'Shippori Mincho', serif;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    margin-bottom: 3rem;
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes slideshow {
+    0% { opacity: 0; transform: scale(1.05); }
+    10% { opacity: 1; transform: scale(1.04); }
+    33% { opacity: 1; transform: scale(1.02); }
+    43% { opacity: 0; transform: scale(1.01); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 7.5vw;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+
+    .hero-subtitle {
+        font-size: 3.5vw;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+    }
+
+    .hero-date {
+        font-size: 1rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 5.5vw;
+        letter-spacing: 0.03em;
+        margin-bottom: 2rem;
+        white-space: nowrap;
+    }
+
+    /* Concept */
+    .concept-content, .concept-content.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .text-block p {
+        font-size: 1rem;
+    }
+
+    .concept-conclusion {
+        font-size: 1rem;
+        padding: 2rem 0.5rem;
+        text-align: left;
+    }
+
+    .signature {
+        font-size: 1.15rem;
+    }
+
+    /* Info Table */
+    .info-table-wrapper {
+        padding: 1.2rem;
+    }
+
+    .info-table th, .info-table td {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 0.5rem;
+    }
+
+    .info-table th {
+        padding-bottom: 0.3rem;
+        border-bottom: none;
+        font-size: 1rem;
+    }
+
+    .info-table td {
+        font-size: 0.95rem;
+    }
+
+    /* Profiles */
+    .profiles {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .profile-card {
+        padding: 1.5rem;
+    }
+
+    .profile-name {
+        font-size: 1.2rem;
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 5rem 0;
+    }
+
+    .cta-title {
+        font-size: 5vw;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+    }
+
+    .cta-section p {
+        font-size: 3.5vw;
+        white-space: nowrap;
+    }
+
+    .btn-primary.large {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
